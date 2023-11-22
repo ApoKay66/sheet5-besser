@@ -1,0 +1,55 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#define Reihen 5
+#define Spalten 10
+
+char Buchstabe ='E';
+int Spielfeld[Reihen][Spalten];
+int test;
+int Anzahl;
+int Alter;
+const char* name1 = "Cebra";
+const char* name2 = "Monty";
+
+struct Spieler{
+    char name[20];
+    int Alter;
+};
+void Zufallsfaktor() {
+    srand((unsigned int)time(NULL));
+};
+int Würfeln() {
+    return (rand() % 6) + 1;
+};
+
+int main() {
+
+    for(int i=0; i<Reihen; i++){
+        if(i==0 || i==2 || i==4){
+         for(int j=0; j<Spalten; j++){
+        }    
+        }
+        if(i==1 || i==3 || i==5){
+         for(int j=11; j>Spalten-9; j--){
+        }   }
+        printf("\n");
+    }
+    
+    scanf("%d", &test);
+    scanf("%d", &Anzahl);
+    while(Anzahl <0||Anzahl >3){
+        printf("ERROR: MAX Anzahl\n");
+        scanf("%d", &Anzahl);
+    }
+    struct Spieler Nummer[3];
+    for(int i=0; i< Anzahl; i++){
+        scanf("%s", Nummer[i].name);
+        scanf("%d", &Nummer[i].Alter);
+    }
+    printf("Spieler: %s %s ", name1, name2);
+    for (int i = 0; i < Anzahl; i++) {
+        printf("%s-%d ", Nummer[i].name, Nummer[i].Alter);
+    }
+    return 0;
+}
