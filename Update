@@ -9,6 +9,7 @@ int Spielfeld[Reihen][Spalten];
 int test;
 int Anzahl;
 int Alter;
+int wurf;
 const char* name1 = "Cebra";
 const char* name2 = "Monty";
 
@@ -17,7 +18,7 @@ struct Spieler{
     int Alter;
 };
 void Zufallsfaktor() {
-    srand((unsigned int)time(NULL));
+    srand(time(NULL));
 };
 int Würfeln() {
     return (rand() % 6) + 1;
@@ -26,12 +27,15 @@ int Würfeln() {
 int main() {
 
     for(int i=0; i<Reihen; i++){
+        printf("%c ", 'E'-i);
         if(i==0 || i==2 || i==4){
          for(int j=0; j<Spalten; j++){
+             printf("%d ", j+1, Spielfeld[i][j]);
         }    
         }
         if(i==1 || i==3 || i==5){
          for(int j=11; j>Spalten-9; j--){
+             printf("%d ", j-1, Spielfeld[i][j]);
         }   }
         printf("\n");
     }
@@ -51,5 +55,28 @@ int main() {
     for (int i = 0; i < Anzahl; i++) {
         printf("%s-%d ", Nummer[i].name, Nummer[i].Alter);
     }
+int i=0;
+if(Nummer[i].Alter< Nummer[i+1].Alter && Nummer[i].Alter< Nummer[i+2].Alter){
+        printf("\nStart: %s\n", Nummer[i].name);
+}
+
+if(Nummer[i+1].Alter< Nummer[i].Alter && Nummer[i+1].Alter< Nummer[i+2].Alter){
+        printf("\nStart: %s\n", Nummer[i+1].name);
+}
+
+if(Nummer[i+2].Alter< Nummer[i].Alter && Nummer[i+2].Alter< Nummer[i+1].Alter){
+        printf("\nStart: %s\n", Nummer[i+2].name);
+}
+
+    for(int i=0; i<Reihen; i++){
+        for(int j=0; j<Spalten; j++){
+            wurf = (rand() % 6) + 1; // Generiere eine Zufallszahl zwischen 1 und 6
+            printf("%d ", j+wurf, i+1, Spielfeld[i][j]);
+            if(j+wurf>10){
+                printf("%c", 'A'+i);
+            }
+        }
+}
+
     return 0;
 }
