@@ -67,15 +67,16 @@ if(Nummer[i+1].Alter< Nummer[i].Alter && Nummer[i+1].Alter< Nummer[i+2].Alter){
 if(Nummer[i+2].Alter< Nummer[i].Alter && Nummer[i+2].Alter< Nummer[i+1].Alter){
         printf("\nStart: %s\n", Nummer[i+2].name);
 }
-
-    for(int i=0; i<Reihen; i++){
-        for(int j=0; j<Spalten; j++){
-            wurf = (rand() % 6) + 1; // Generiere eine Zufallszahl zwischen 1 und 6
-            printf("%d ", j+wurf, i+1, Spielfeld[i][j]);
-            if(j+wurf>10){
-                printf("%c", 'A'+i);
-            }
+   
+    for(int i=0; i<1; i++){
+        for(int j=0; j<Anzahl; j++){
+            wurf = (rand() % 6) + 1; 
+            printf("Spieler: %s; Zahl; %d; Position: %c %d\n",  Nummer[j].name, wurf, 'A' , wurf);
         }
+        wurf = (rand() % 6) + 1;
+        printf("Spieler: %s; Zahl; %d; Position: %c %d\n", name1, wurf, 'A', wurf);
+        wurf = (rand() % 6) + 1;
+        printf("Spieler: %s; Zahl; %d; Position: %c %d\n", name2, wurf, 'A', wurf);
 }
 
     return 0;
